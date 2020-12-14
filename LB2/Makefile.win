@@ -1,0 +1,29 @@
+# Project: LB2
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = LB2.o
+LINKOBJ  = LB2.o
+LIBS     = -L"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -m64
+INCS     = -I"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = LB2.exe
+CXXFLAGS = $(CXXINCS) -ansi -march=native -mtune=native -m64 -std=c99
+CFLAGS   = $(INCS) -ansi -march=native -mtune=native -m64 -std=c99
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+LB2.o: LB2.c
+	$(CC) -c LB2.c -o LB2.o $(CFLAGS)

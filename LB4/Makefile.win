@@ -1,0 +1,32 @@
+# Project: LB4
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = LB4.1.o LB4.2.o
+LINKOBJ  = LB4.1.o LB4.2.o
+LIBS     = -L"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"D:/films/Новая папка/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = LB4.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+LB4.1.o: LB4.1.c
+	$(CC) -c LB4.1.c -o LB4.1.o $(CFLAGS)
+
+LB4.2.o: LB4.2.c
+	$(CC) -c LB4.2.c -o LB4.2.o $(CFLAGS)
